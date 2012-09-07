@@ -1,0 +1,44 @@
+---
+layout: default
+title: Sitemap
+---
+<div class="container">
+	<section class="posts_by_category">
+		<h1>Posts by category</h1>
+		<blockquote>
+		{% for category in site.categories %}
+			<a id="category-{{ category[0] }}" href="#category-{{ category[0] }}">{{ category[0] }}</a>
+			<ul>
+			{% for post in category[1] %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+			</ul>
+		{% endfor %}
+		</blockquote>
+	</section>
+	
+	<section class="posts_by_tag">
+		<h1>Posts by tag</h1>
+		<blockquote>
+		{% for tag in site.tags %}
+			<a id="tag-{{ tag[0] }}" href="#tag-{{ tag[0] }}">{{ tag[0] }}</a>
+			<ul>
+			{% for post in tag[1] %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+			</ul>
+		{% endfor %}
+		</blockquote>
+	</section>
+	
+	<section class="posts_by_offtopic">
+		<h1>Offtopic</h1>
+		<blockquote>
+		<ul>
+		{% for post in site.posts %}
+			<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+		</ul>
+		</blockquote>
+	</section>
+</div>

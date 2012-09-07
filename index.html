@@ -1,0 +1,18 @@
+---
+layout: default
+title: Welcome
+home: active
+---
+
+<ul>
+	{% for post in site.posts limit:2 %}
+	<li>
+		<h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+		{{ post.content }}
+	{% endfor %}
+	{% for post in site.posts offset:2 %}
+	<li class="post">
+		<h4><a href="{{post.url}}">{{ post.title }}</a></h4>
+	</li>
+	{% endfor %}
+</ul>

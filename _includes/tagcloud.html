@@ -1,0 +1,21 @@
+<section class="tagcloud">
+	<h1>Tag Cloud</h1>
+	<blockquote>
+	<script>
+	(function (d) {
+		{% assign biggest = 1 %}
+		{% for tag in site.tags %}
+			{% if tag[1].size > biggest %}
+				{% assign biggest = tag[1].size %}
+			{% endif %}
+		{% endfor %}
+
+		var tagMax  = {{ biggest }}, fontMin = 11, fontMax = 30, fontDiff = fontMax - fontMin, size;
+		{% for tag in site.tags %}
+			size = (({{ tag[1].size }} * (100 / tagMax) / 100) * fontDiff) + fontMin;
+			d.write('<a href="/sitemap.html#tag-{{ tag[0] }}" style="font-size: ' + size + 'px">{{ tag[0] }}</a> ');
+		{% endfor %}
+	})(document);
+	</script>
+	</blockquote>
+</section>
