@@ -154,8 +154,7 @@ Dazu sollten wir sie instanziieren:
 		'adapter' => array(
 			'name'    => 'filesystem',
 			'options' => array(
-				'cache_dir' => __DIR__ . '/cache',
-				'ttl'       => 3600,
+				// ...
 			),
 		),
 		'plugins' => array(
@@ -166,11 +165,32 @@ Dazu sollten wir sie instanziieren:
 				'throw_exceptions'   => false,
 				'exception_callback' => function (Exception $e) {
 					$message = date('r') . ' ' . $e . PHP_EOL;
-					file_put_contents(__DIR__ . '/log/cache_error.log', $message, FILE_APPEND);
+					file_put_contents(__DIR__ . '/cache_error.log', $message, FILE_APPEND);
 				},
 			),
 		),
 	));
+	
+Mit dem obigen Code erstellt man eine Instanz von `Zend\Cache\Storage\Adapter\Filesystem`.
+Nebenbei wird das Serializer Plugin hinzugefügt, damit auch andere Datentypen wie Arrays gespeichert werden können
+und das Plugin ExceptionHandler wodurch Fehler nach "cache_error.log" geloggt werden
+und die Anwendung sich nicht um Exceptions aus dem Cache kümmern muss.
+
+Nun wollen wir ein RSS-Feed abrufen und dieses cachen:
+
+	$feedUrl  = 'http://www.marc-bennewitz.de/rss.xml';
+	$cacheKey = 'feed_' . md5($feedUrl);
+	$result   = $cache->get($cacheKey);
+	if (!$result instanceof SimpleXmlElement) {
+		$result = simplexml_load_file($feedUrl);
+		if (!$result) {
+			die("Can't load '{$feedUrl}'");
+		}
+	    
+		$cache->set($cacheKey, $result);
+	}
+
+
 
 
 -----------------------------------------------
