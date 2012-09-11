@@ -1,0 +1,23 @@
+---
+---
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>www.marc-bennewitz.de</title>
+		<description>{{ site.description }}</description>
+		<link>http://www.marc-bennewitz.de/</link>
+		<atom:link href="http://www.marc-bennewitz.de/rss.xml" rel="self" type="application/rss+xml" />
+		<pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+		{% for post in site.posts limit:10 %}
+			<item>
+				<guid>http://marc-bennewitz.de{{ post.id }}</guid>
+				<link>http://www.marc-bennewitz.de{{ post.url }}</link>
+				<title>{{ post.title }}</title>
+				<published>{{ post.date }}</published>
+				<author>functionn.github@functionn.github.com (Marc Bennewitz)</author>
+				<description>{{ post.content | strip_html | truncatewords:100 | xml_escape }}</description>
+			</item>
+		{% endfor %}
+	</channel>
+</rss>
