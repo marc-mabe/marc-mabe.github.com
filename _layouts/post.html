@@ -25,43 +25,54 @@ for(var b=b||i(a),c=b.frag.cloneNode(),d=0,e=m(),h=e.length;d<h;d++)c.createElem
 
 {% include nav.html %}
 
-<header class="jumbotron masthead">
-	<div class="container">
-		<h1>{{ page.title }}</h1>
-		
-		{% if page.categories %}
-		<h2>
-		{% if page.categories.size > 1 %}Categories:{% else %}Category:{% endif %}
-		{% for category in page.categories %}
-			<a href="/sitemap.html#category-{{category}}">{{category}}</a>
-		{% endfor %}
-		</h2>
-		{% endif %}
-		
-		{% if page.tags %}
-		<h3>Tags:
-		{% for tag in page.tags %}
-			<a href="/sitemap.html#tag-{{tag}}">{{tag}}</a>
-		{% endfor %}
-		</h3>
-		{% endif %}
-	</div>
-</header>
-
-<div class="container">
+<div class="container masthead">
 	<div class="row">
 		<div class="span9">
-			<article>{{ content }}</article>
-		</div>
-	</div>
-	<div class="row" id="related">
-		<div class="span9">
-			<h3>Related Posts</h3>
-			<ul class="posts">
-			{% for post in site.related_posts limit:3 %}
-				<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-			{% endfor %}
-			</ul>
+
+			<article class="post masthead">
+				<h1>{{ page.title }}</h1>
+				
+				<time datetime="{{ post.date | date: "%Y-%m-%d" }}" pubdate="pubdate">{{ page.date | date_to_string }}</time>
+				
+				{% if page.categories.size > 0 %}
+				<section class="categories">
+					<blockquote>
+					<h1>{% if page.categories.size > 1 %}Categories{% else %}Category{% endif %}</h1>
+					<ul>
+					{% for category in page.categories %}
+						<li><a href="/sitemap.html#category-{{category }}">{{category }}</a></li>
+					{% endfor %}
+					</ul>
+					</blockquote>
+				</section>
+				{% endif %}
+
+				{% if page.tags.size > 0 %}
+				<section class="tags">
+					<blockquote>
+					<h1>{% if page.tags.size > 1 %}Tags{% else %}Tag{% endif %}</h2>
+					<ul>
+					{% for tag in page.tags %}
+						<li><a href="/sitemap.html#tag-{{ tag }}">{{ tag }}</a></li>
+					{% endfor %}
+					</ul>
+					</blockquote>
+				</section>
+				{% endif %}
+
+				<div class="content">{{ content }}</div>
+			</article>
+
+			{% if page.related_posts.size > 0 %}
+			<section class="related">
+				<h3>Related Posts</h3>
+				<ul class="posts">
+				{% for post in page.related_posts limit:3 %}
+					<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+				</ul>
+			</section>
+			{% endif %}
 		</div>
 	</div>
 </div>
