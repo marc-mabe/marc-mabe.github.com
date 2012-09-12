@@ -22,13 +22,13 @@ for(var b=b||i(a),c=b.frag.cloneNode(),d=0,e=m(),h=e.length;d<h;d++)c.createElem
 
 {% include nav.html %}
 
-{% if page.title %}
-<header id="overview" class="jumbotron subhead">
+<header class="jumbotron masthead">
+	{% if page.title %}
 	<div class="container">
 		<h1>{{ page.title }}</h1>
 	</div>
+	{% endif %}
 </header>
-{% endif %}
 
 <div class="container">
     <div class="row">

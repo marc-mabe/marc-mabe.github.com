@@ -1,6 +1,5 @@
-#overview {padding: 40px 0}
-
 .jumbotron { border-radius: 0; padding: 0; background: -moz-linear-gradient(center top , #F2F2F2, #FFFFFF) #FAFAFA repeat-x }
+.masthead { padding: 40px 0 }
 
 .footer { background-color: #F5F5F5; border-top: 1px solid #E5E5E5; margin-top: 10px; padding: 10px 0 }
 .footer p { color: #777777; margin-bottom: 0 }
