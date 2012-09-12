@@ -26,7 +26,6 @@ for(var b=b||i(a),c=b.frag.cloneNode(),d=0,e=m(),h=e.length;d<h;d++)c.createElem
 <header id="overview" class="jumbotron subhead">
 	<div class="container">
 		<h1>{{ page.title }}</h1>
-		{% if page.subtitle %}<p class="lead">{{ page.subtitle }}</p>{% endif %}
 	</div>
 </header>
 {% endif %}
@@ -41,32 +40,18 @@ for(var b=b||i(a),c=b.frag.cloneNode(),d=0,e=m(),h=e.length;d<h;d++)c.createElem
 
 <footer class="footer">
 	<div class="container">
-		<div class="span3">
+		<div class="span5">
 			{% include tagcloud.html %}
 		</div>
-		<div class="span5">
+		<div class="span3">
 			{% include get-in-touch.html %}
 		</div>
 		<div class="span3">
-			<h1><img width="32" height="32" src="/assets/img/icons-32x32/feed.png" alt=""> Follow me</h1>
-			<ul>
-				<li><a href="/rss.xml" title="RSS Feed">RSS</li>
-				<li><a href="/atom.xml" title="Atom Feed">Atom</a></li>
-			</ul>
+			{% include follow-me.html %}
 		</div>
 	</div>
 </footer>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34447207-1']);
-  _gaq.push(['_setDomainName', 'marc-bennewitz.de']);
-  _gaq.push(['_trackPageview']);
-  (function(d) {
-    var ga = d.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })(document);
-</script>
+{% include analytics.html %}
 </body>
 </html>
