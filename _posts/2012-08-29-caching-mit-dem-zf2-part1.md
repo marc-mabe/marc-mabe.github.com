@@ -178,7 +178,7 @@ und die Anwendung sich nicht um Exceptions aus dem Cache kümmern muss.
 
 Nun wollen wir ein RSS-Feed abrufen und dieses cachen:
 
-	$feedUrl  = 'http://www.marc-bennewitz.de/rss.xml';
+	$feedUrl  = 'http://mabe.berlin/rss.xml';
 	$cacheKey = 'feed_' . md5($feedUrl);
 	$result   = $cache->get($cacheKey);
 	if (!$result instanceof SimpleXmlElement) {
