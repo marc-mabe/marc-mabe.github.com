@@ -11,7 +11,7 @@
 		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
 		{% for post in site.posts limit:10 %}
 			<item>
-				<guid>http://mabe.berlin/{{ post.id }}</guid>
+				<guid>http://mabe.berlin{{ post.id }}</guid>
 				<link>http://mabe.berlin{{ post.url }}</link>
 				<title>{{ post.title }}</title>
 				<published>{{ post.date }}</published>
