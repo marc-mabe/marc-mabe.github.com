@@ -3,8 +3,8 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>www.marc-bennewitz.de</title>
-	<link href="http://www.marc-bennewitz.de/"/>
-	<link type="application/atom+xml" rel="self" href="http://www.marc-bennewitz.de/atom.xml"/>
+	<link href="http://mabe.berlin/"/>
+	<link type="application/atom+xml" rel="self" href="http://mabe.berlin/atom.xml"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<id>http://www.marc-bennewitz.de/</id>
 	<author>
@@ -14,14 +14,14 @@
  
 	{% for post in site.posts %}
 	<entry>
-		<id>http://www.marc-bennewitz.de/{{ post.id }}</id>
+		<id>http://mabe.berlin/{{ post.id }}</id>
 		<link type="text/html" rel="alternate" href="http://functionn.github.com{{ post.url }}"/>
 		<title>{{ post.title }}</title>
 		<published>{{ post.date | date_to_xmlschema }}</published>
 		<updated>{{ post.date | date_to_xmlschema }}</updated>
 		<author>
 			<name>Marc Bennewitz</name>
-			<uri>http://www.marc-bennewitz.de/</uri>
+			<uri>http://mabe.berlin/</uri>
 		</author>
 		<content type="html">{{ post.content | strip_html | truncatewords:100 | xml_escape }}</content>
 		</entry>
