@@ -95,27 +95,27 @@ Zudem können sich diese Capabilites teilweise durch setzten bestimmter Optionen
 
 Zur Verfügung stehen folgende Capabilites:
 
- - supported datatypes
-  - Gibt an, welche Datentypen gespeichert werden können und in welche Sie dabei evtl. konvertiert werden
- - supported metadata
-  - Gibt an, welche zusatzinformationen durch die Methoden `getMetadata()` und `getMetadatas()` abrufbar sind
- - min TTL / max TTL
-  - Gibt an, was die kleinste / größte TTL ist (falls verfügbar)
- - static TTL
-  - Gibt an, ob die TTL mit dem Item gespeichert wird (TRUE),
-    oder ob Sie beim Lesen mittels der aktuellen Zeit und der Zeit des Items berechnet wird (FALSE)
- - TTL precision
-  - Gibt die genauigkeit der TTL an (falls verfügbar)
- - use request time
-  - Gibt an, ob die aktuelle Zeit für Berechnungen herangezogen wird oder die Zeit der Serveranfrage
- - expired read
-  - Gibt an, ob abgelaufene Einträge noch gelesen werden können, solange diese noch nicht gelöscht wurden
- - max. key length
-  - Gibt die maximale Länge eines Cache-Keys an
- - namespace is prefix
-  - Gibt an, ob die Implementation des Namespaces als Prefix implementiert wurde
- - namespace separator
-  - Das Trennzeichen für den Namespace als Prefix mit dem eigentlichen Cache-Key
+- supported datatypes
+    - Gibt an, welche Datentypen gespeichert werden können und in welche Sie dabei evtl. konvertiert werden
+- supported metadata
+    - Gibt an, welche zusatzinformationen durch die Methoden `getMetadata()` und `getMetadatas()` abrufbar sind
+- min TTL / max TTL
+    - Gibt an, was die kleinste / größte TTL ist (falls verfügbar)
+- static TTL
+    - Gibt an, ob die TTL mit dem Item gespeichert wird (TRUE),
+      oder ob Sie beim Lesen mittels der aktuellen Zeit und der Zeit des Items berechnet wird (FALSE)
+- TTL precision
+    - Gibt die genauigkeit der TTL an (falls verfügbar)
+- use request time
+    - Gibt an, ob die aktuelle Zeit für Berechnungen herangezogen wird oder die Zeit der Serveranfrage
+- expired read
+    - Gibt an, ob abgelaufene Einträge noch gelesen werden können, solange diese noch nicht gelöscht wurden
+- max. key length
+    - Gibt die maximale Länge eines Cache-Keys an
+- namespace is prefix
+    - Gibt an, ob die Implementation des Namespaces als Prefix implementiert wurde
+- namespace separator
+    - Das Trennzeichen für den Namespace als Prefix mit dem eigentlichen Cache-Key
 
 --------------------------------------------
 
