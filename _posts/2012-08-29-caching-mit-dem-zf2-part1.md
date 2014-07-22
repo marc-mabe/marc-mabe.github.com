@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Caching mit dem ZF2 (Part 1/2)
+title: Caching mit dem ZF2
 archive: active
 categories: development
 tags: php zf2 cache
@@ -24,32 +24,32 @@ Das Basis-Interface `Zend\Cache\Storage\StorageInterface` definiert die Mindesta
 Speichersysteme implementieren dieses Interface).
 Es definiert die folgenden Lese- und Schreiboperationen eines "Key-Values-Storage":
 
- - Leseoperationen
- -----------------
-  - `getItem(string $key, boolean & $success = null, mixed & $casToken = null)`
-  - `getItems(array $keys)`
-  - `hasItem(string $key)`
-  - `hasItems(array $keys)`
-  - `getMetadata(string $key)`
-  - `getMetadatas(array $keys)`
+- Leseoperationen
+-----------------
+    - `getItem(string $key, boolean & $success = null, mixed & $casToken = null)`
+    - `getItems(array $keys)`
+    - `hasItem(string $key)`
+    - `hasItems(array $keys)`
+    - `getMetadata(string $key)`
+    - `getMetadatas(array $keys)`
 
- - Schreiboperationen
- --------------------
-  - `setItem(string $key, mixed $value)`
-  - `setItems(array $keyValuePairs)`
-  - `addItem(string $key, mixed $value)`
-  - `addItems(array $keyValuePairs)`
-  - `replaceItem(string $key, mixed $value)`
-  - `replaceItems(array $keyValuePairs)`
-  - `checkAndSetItem(mixed $token, string $key, mixed $value)`
-  - `removeItem(string $key)`
-  - `removeItems(array $keys)`
-  - `touchItem(string $key)`
-  - `touchItems(array $keys)`
-  - `incrementItem(string $key)`
-  - `incrementItems(array $keyValueParis)`
-  - `decrementItem(string $key)`
-  - `decrementItems(array $keyValueParis)`
+- Schreiboperationen
+--------------------
+    - `setItem(string $key, mixed $value)`
+    - `setItems(array $keyValuePairs)`
+    - `addItem(string $key, mixed $value)`
+    - `addItems(array $keyValuePairs)`
+    - `replaceItem(string $key, mixed $value)`
+    - `replaceItems(array $keyValuePairs)`
+    - `checkAndSetItem(mixed $token, string $key, mixed $value)`
+    - `removeItem(string $key)`
+    - `removeItems(array $keys)`
+    - `touchItem(string $key)`
+    - `touchItems(array $keys)`
+    - `incrementItem(string $key)`
+    - `incrementItems(array $keyValueParis)`
+    - `decrementItem(string $key)`
+    - `decrementItems(array $keyValueParis)`
 
 All diese Methoden können von einem "Key-Value-Storage" unterstützt werden bzw. lassen sich auf einfache Weise emulieren.
 So kann beispielweise die Methode `incrementItem()` emuliert werden, indem das jeweilige Item gelesen wird,
@@ -65,26 +65,26 @@ für die ganze Instanz gesetzt.
 Die folgenden weiteren Interfaces definieren zusätzliche Operationen, welche von bestimmten Cache-Speichern unterstützt
 werden und nur dort implementiert sind:
 
- - `AvailableSpaceCapableInterface`
-  - `getAvailableSpace()`
- - `TotalSpaceCapableInterface`
-  - `getTotalSpace()`
- - `ClearByNamespaceInterface`
-  - `clearByNamespace($namespace)`
- - `ClearByPrefixInterface`
-  - `clearByPrefix($prefix)`
- - `ClearExpiredInterface`
-  - `clearExpired()`
- - `FlushableInterface`
-  - `flush()`
- - `IterableInterface`
-  - `getIterator()`
- - `OptimizableInterface`
-  - `optimize()`
- - `TaggableInterface`
-  - `setTags(string $key, array $tags)`
-  - `getTags(string $key)`
-  - `clearByTags(array $tags, boolean $disjunction = false)`
+- `AvailableSpaceCapableInterface`
+    - `getAvailableSpace()`
+- `TotalSpaceCapableInterface`
+    - `getTotalSpace()`
+- `ClearByNamespaceInterface`
+    - `clearByNamespace($namespace)`
+- `ClearByPrefixInterface`
+    - `clearByPrefix($prefix)`
+- `ClearExpiredInterface`
+    - `clearExpired()`
+- `FlushableInterface`
+    - `flush()`
+- `IterableInterface`
+    - `getIterator()`
+- `OptimizableInterface`
+    - `optimize()`
+- `TaggableInterface`
+    - `setTags(string $key, array $tags)`
+    - `getTags(string $key)`
+    - `clearByTags(array $tags, boolean $disjunction = false)`
 
 ---------------------------------------
 
