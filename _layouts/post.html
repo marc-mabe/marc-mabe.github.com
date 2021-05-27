@@ -61,22 +61,6 @@ for(var b=b||i(a),c=b.frag.cloneNode(),d=0,e=m(),h=e.length;d<h;d++)c.createElem
 				{% endif %}
 
 				<div class="content">{{ content }}</div>
-				
-				<div id="disqus_thread"></div>
-				<script type="text/javascript">
-				var disqus_shortname = "mabe";
-				var disqus_identifier = "{{ page.id }}";
-				var disqus_url = "http://mabe.berlin{{ page.url }}";
-				var disqus_title = "[mabe]";
-				var disqus_category_id = '1756750';
-				//var disqus_developer = 1;
-				(function(d) {
-					var dsq = d.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
-					dsq.src = "http://" + disqus_shortname + ".disqus.com/embed.js";
-					(d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0]).appendChild(dsq);
-				})(document);
-				document.write('<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>');
-				</script>
 			</article>
 
 			{% if page.related_posts.size > 0 %}
